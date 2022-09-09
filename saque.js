@@ -1,17 +1,17 @@
 var valor_inserido = "";
 var resultado="";
 
-function contarNotas(contador, numero){
+function contarNotas ( contador, valor_nota ) {
     if ( contador == 1 ) {
-        return contador +" nota de $"+numero+"; ";
+        return contador + " nota de $" + valor_nota + "; ";
     } else if ( contador > 1 ) {
-        return contador +" notas de $"+numero+"; ";
-    }else if(contador==0){
+        return contador + " notas de $" + valor_nota + "; ";
+    }else if( contador == 0 ){
         return "";
     }
 }
 
-function calcular() {
+function calcular () {
     valor_inserido = document.getElementById('valor').value;
    
 
@@ -44,7 +44,7 @@ function calcular() {
         resultado += contarNotas(contador_cinco,5);
         resultado += contarNotas(contador_um,1);
 
-        document.getElementById('resultado').innerHTML = "Você receberá: "+ resultado;
+        document.getElementById('resultado').innerHTML = "Você receberá: " + resultado;
         resultado = "";
     } else {
         document.getElementById('resultado').innerHTML = "Valor inválido favor inserir um valor positivo.";
