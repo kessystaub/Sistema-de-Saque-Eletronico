@@ -1,8 +1,19 @@
 var valor_inserido = "";
+var resultado="";
+
+function contarNotas(contador, numero){
+    if ( contador == 1 ) {
+        return contador +" nota de $"+numero+"; ";
+    } else if ( contador > 1 ) {
+        return contador +" notas de $"+numero+"; ";
+    }else if(contador==0){
+        return "";
+    }
+}
 
 function calcular() {
     valor_inserido = document.getElementById('valor').value;
-    var resultado="";
+   
 
     if ( valor_inserido > 0 ) {
         let contador_cem = 0 , contador_cinquenta = 0, contador_dez = 0, contador_cinco = 0, contador_um = 0;
@@ -27,32 +38,14 @@ function calcular() {
             valor_inserido -= 1;
         }
         
-        if ( contador_cem == 1 ) {
-            resultado = resultado + contador_cem+" nota de $100; ";
-        } else if ( contador_cem > 1 ) {
-            resultado = resultado + contador_cem+" notas de $100; ";
-        }
-        if ( contador_cinquenta == 1 ) {
-            resultado = resultado + contador_cinquenta+" nota de $50; ";
-        } else if ( contador_cinquenta > 1 ) {
-            resultado = resultado + contador_cinquenta+" notas de $50; ";
-        }
-        if ( contador_dez == 1 ) {
-            resultado = resultado + contador_dez+" nota de $10; ";
-        } else if ( contador_dez > 1 ) {
-            resultado = resultado + contador_dez+" notas de $10; ";
-        }
-        if ( contador_cinco == 1 ) {
-            resultado = resultado + contador_cinco+" nota de $5; ";
-        } else if ( contador_cinco > 1 ) {
-            resultado = resultado + contador_cinco+" notas de $5; ";
-        }
-        if ( contador_um == 1 ) {
-            resultado = resultado + contador_um+" nota de $1; ";
-        } else if ( contador_um > 1 ) {
-            resultado = resultado + contador_um+" notas de $1; ";
-        }
+        resultado += contarNotas(contador_cem,100);
+        resultado += contarNotas(contador_cinquenta,50);
+        resultado += contarNotas(contador_dez,10);
+        resultado += contarNotas(contador_cinco,5);
+        resultado += contarNotas(contador_um,1);
+
         document.getElementById('resultado').innerHTML = "Você receberá: "+ resultado;
+        resultado = "";
     } else {
         document.getElementById('resultado').innerHTML = "Valor inválido favor inserir um valor positivo.";
     }
