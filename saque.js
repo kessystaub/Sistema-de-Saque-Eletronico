@@ -2,14 +2,10 @@ var valor_inserido = "";
 
 function calcular() {
     valor_inserido = document.getElementById('valor').value;
-    let resultado="";
-    if ( valor_inserido > 0 ) {
-        let contador_cem = 0;
-        let contador_cinquenta = 0;
-        let contador_dez = 0;
-        let contador_cinco = 0;
-        let contador_um = 0;
+    var resultado="";
 
+    if ( valor_inserido > 0 ) {
+        let contador_cem = 0 , contador_cinquenta = 0, contador_dez = 0, contador_cinco = 0, contador_um = 0;
         while ( valor_inserido >= 100 ) {
             contador_cem++;
             valor_inserido -= 100;
@@ -58,7 +54,7 @@ function calcular() {
         }
         document.getElementById('resultado').innerHTML = "Você receberá: "+ resultado;
     } else {
-        document.getElementById('resultado').innerHTML = "Valor inválido favor inserir um valor positivo";
+        document.getElementById('resultado').innerHTML = "Valor inválido favor inserir um valor positivo.";
     }
 }
 
