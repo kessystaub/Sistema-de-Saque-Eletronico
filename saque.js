@@ -1,6 +1,3 @@
-var valor_inserido = "";
-var resultado="";
-
 function contarNotas ( contador, valor_nota ) {
     if ( contador == 1 ) {
         return contador + " nota de $" + valor_nota + "; ";
@@ -12,11 +9,12 @@ function contarNotas ( contador, valor_nota ) {
 }
 
 function calcular () {
-    valor_inserido = document.getElementById('valor').value;
+    var valor_inserido = document.getElementById('valor').value;
+    let resultado="";
    
-
     if ( valor_inserido > 0 ) {
         let contador_cem = 0 , contador_cinquenta = 0, contador_dez = 0, contador_cinco = 0, contador_um = 0;
+
         while ( valor_inserido >= 100 ) {
             contador_cem++;
             valor_inserido -= 100;
@@ -50,4 +48,3 @@ function calcular () {
         document.getElementById('resultado').innerHTML = "Valor inválido favor inserir um valor positivo.";
     }
 }
-
